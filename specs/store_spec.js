@@ -17,8 +17,12 @@ describe("Store", function(){
     assert.strictEqual(store1.city, "Embra");
   });
 
-  it("should start with an empty inventory", function (){
+  it("should start with an empty inventory", function(){
     assert.strictEqual(store1.inventory.length, 0);
+  });
+
+  it("should have an initial balance", function(){
+    assert.strictEqual(store1.storeBalance, 100.00)
   });
 
 });
