@@ -10,6 +10,10 @@ describe("Store", function(){
   beforeEach(function(){
     store1 = new Store("Record Shop", "Embra", []);
     record1 = new Record("The Cult", "Electric", "rock", 12.99);
+    record2 = new Record("Velvet Revolver", "Contraband", "rock", 8.99);
+    record3 = new Record("AC/DC", "Highway to Hell", "rock", 9.99);
+    record4 = new Record("Eminem", "Encore", "rap", 4.99);
+    record5 = new Record("Guns 'n' Roses", "Appetite for Destruction", "rock", 11.99);
   });
 
   it("should have a name", function(){
@@ -33,6 +37,13 @@ describe("Store", function(){
     assert.strictEqual(store1.inventory.length, 1);
     assert.deepEqual(store1.inventory, [record1]);
   });
+
+  it("should list full inventory", function(){
+    store1.addRecord(record1);
+    store1.addRecord(record3);
+    assert.strictEqual(store1.inventory.length, 2);
+    assert.strictEqual(store1.listFullInventory(), "Artist: The Cult, Title: Electric, Genre: rock, Price: £12.99. Artist: AC/DC, Title: Highway to Hell, Genre: rock, Price: £9.99. ");
+  })
 
 });
 

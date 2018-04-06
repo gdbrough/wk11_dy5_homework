@@ -9,4 +9,13 @@ Store.prototype.addRecord = function(recordtoAdd) {
   this.inventory.push(recordtoAdd);
 };
 
+Store.prototype.listFullInventory = function () {
+  let currentInventoryList = "";
+  for (record of this.inventory){
+    currentInventoryList += record.printDetails();
+  }
+  return currentInventoryList;
+  // return this.inventory;
+};
+
 module.exports = Store;

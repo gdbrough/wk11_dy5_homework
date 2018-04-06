@@ -25,6 +25,10 @@ describe("Record", function(){
     assert.strictEqual(record1.price, 12.99);
   });
 
+  it("should print out record details as string", function(){
+    assert.strictEqual(record1.printDetails(), "Artist: The Cult, Title: Electric, Genre: rock, Price: £12.99. ");
+  })
+
 });
 
 
