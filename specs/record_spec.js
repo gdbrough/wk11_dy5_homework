@@ -1,12 +1,12 @@
 var assert = require('assert');
-var Food = require('../record.js');
+var Record = require('../record.js');
 
 describe("Record", function(){
 
   var record1; //Artist, Title, Genre, and Price
 
   beforeEach(function(){
-    record1 = new Food("The Cult", "Electric", "rock", 12.99);
+    record1 = new Record("The Cult", "Electric", "rock", 12.99);
   });
 
   it("should have a name", function(){
