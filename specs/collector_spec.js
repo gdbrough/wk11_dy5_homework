@@ -44,4 +44,20 @@ describe("Collector", function(){
     assert.strictEqual(collector2.collection.length, 0);
   });
 
+  it("should be able to view total value of collection", function(){
+    collector1.buyRecord(record1, store1);
+    collector1.buyRecord(record2, store1);
+    collector1.buyRecord(record3, store1);
+    collector1.buyRecord(record5, store1);
+    assert.strictEqual(collector1.collectionValue(), 43.96);
+  });
+
+  it("should be able to view total value of collection by genre", function(){
+    collector1.buyRecord(record1, store1);
+    collector1.buyRecord(record2, store1);
+    collector1.buyRecord(record3, store1);
+    collector1.buyRecord(record4, store1);
+    assert.strictEqual(collector1.collectionValue("rock"), 31.97)
+  });
+
 });

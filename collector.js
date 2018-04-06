@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 var Collector = function(name, cash) {
   this.name = name;
   this.cash = cash;
@@ -9,6 +11,15 @@ Collector.prototype.buyRecord = function(recordToBuy, storeToBuyFrom) {
     storeToBuyFrom.sellRecord(recordToBuy);
     this.cash -= recordToBuy.price;
     this.collection.push(recordToBuy);
+  };
+};
+
+Collector.prototype.collectionValue = function(searchGenre) {
+  if (searchGenre) {
+    let genreArray = _.filter(this.collection, record => record.genre === searchGenre);
+    return _.sumBy(genreArray, record => record.price);
+  } else {
+  return _.sumBy(this.collection, record => record.price);
   };
 };
 
