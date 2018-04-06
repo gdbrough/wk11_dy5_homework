@@ -29,4 +29,8 @@ Store.prototype.financialReport = function () {
   return "Store Balance: £" + this.storeBalance + ". Inventory Total: £" + totalInventoryValue + "."
 };
 
+Store.prototype.recordsByGenre = function(searchGenre) {
+  return _.filter(this.inventory, record => record.genre === searchGenre);
+};
+
 module.exports = Store;

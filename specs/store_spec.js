@@ -67,6 +67,15 @@ describe("Store", function(){
     assert.strictEqual(store1.financialReport(), "Store Balance: £109.99. Inventory Total: £38.96.")
   });
 
+  it("should be able to view all records of a given genre", function(){
+    store1.addRecord(record1);
+    store1.addRecord(record2);
+    store1.addRecord(record3);
+    store1.addRecord(record4);
+    store1.addRecord(record5);
+    assert.deepEqual(store1.recordsByGenre("rap"), [record4]);
+  });
+
 });
 
 
