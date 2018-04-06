@@ -43,7 +43,18 @@ describe("Store", function(){
     store1.addRecord(record3);
     assert.strictEqual(store1.inventory.length, 2);
     assert.strictEqual(store1.listFullInventory(), "Artist: The Cult, Title: Electric, Genre: rock, Price: £12.99. Artist: AC/DC, Title: Highway to Hell, Genre: rock, Price: £9.99. ");
-  })
+  });
+
+  it ("should be able to sell records", function(){
+    store1.addRecord(record1);
+    store1.addRecord(record2);
+    store1.addRecord(record3);
+    store1.addRecord(record4);
+    store1.addRecord(record5);
+    store1.sellRecord(record3);
+    assert.strictEqual(store1.inventory.length, 4);
+    assert.deepEqual(store1.inventory, [record1, record2, record4, record5])
+  });
 
 });
 
