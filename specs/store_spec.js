@@ -54,6 +54,17 @@ describe("Store", function(){
     store1.sellRecord(record3);
     assert.strictEqual(store1.inventory.length, 4);
     assert.deepEqual(store1.inventory, [record1, record2, record4, record5])
+    assert.strictEqual(store1.storeBalance, 109.99);
+  });
+
+  it("should be able to produce a financial report", function(){
+    store1.addRecord(record1);
+    store1.addRecord(record2);
+    store1.addRecord(record3);
+    store1.addRecord(record4);
+    store1.addRecord(record5);
+    store1.sellRecord(record3);
+    assert.strictEqual(store1.financialReport(), "Store Balance: £109.99. Inventory Total: £38.96.")
   });
 
 });

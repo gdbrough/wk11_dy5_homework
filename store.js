@@ -21,7 +21,12 @@ Store.prototype.listFullInventory = function () {
 
 Store.prototype.sellRecord = function(recordToSell) {
   this.storeBalance += recordToSell.price
-  this.inventory = _.remove(this.inventory, record => record !== recordToSell)
+  this.inventory = _.remove(this.inventory, record => record !== recordToSell);
+};
+
+Store.prototype.financialReport = function () {
+  let totalInventoryValue = _.sumBy(this.inventory, record => record.price);
+  return "Store Balance: £" + this.storeBalance + ". Inventory Total: £" + totalInventoryValue + "."
 };
 
 module.exports = Store;
