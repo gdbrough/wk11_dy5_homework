@@ -19,8 +19,12 @@ Collector.prototype.collectionValue = function(searchGenre) {
     let genreArray = _.filter(this.collection, record => record.genre === searchGenre);
     return _.sumBy(genreArray, record => record.price);
   } else {
-  return _.sumBy(this.collection, record => record.price);
+    return _.sumBy(this.collection, record => record.price);
   };
+};
+
+Collector.prototype.mostExpensive = function() {
+  return _.maxBy(this.collection, record => record.price);
 };
 
 module.exports = Collector;

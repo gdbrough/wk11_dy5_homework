@@ -57,7 +57,14 @@ describe("Collector", function(){
     collector1.buyRecord(record2, store1);
     collector1.buyRecord(record3, store1);
     collector1.buyRecord(record4, store1);
-    assert.strictEqual(collector1.collectionValue("rock"), 31.97)
+    assert.strictEqual(collector1.collectionValue("rock"), 31.97);
+  });
+
+  it("should be able to view most expensive record in collection", function(){
+    collector1.buyRecord(record1, store1);
+    collector1.buyRecord(record2, store1);
+    collector1.buyRecord(record3, store1);
+    assert.deepEqual(collector1.mostExpensive(), record1);
   });
 
 });
