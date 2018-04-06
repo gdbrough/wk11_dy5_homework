@@ -27,4 +27,18 @@ Collector.prototype.mostExpensive = function() {
   return _.maxBy(this.collection, record => record.price);
 };
 
+Collector.prototype.sortByPrice = function(direction) {
+  if (direction){
+    return _.orderBy(this.collection, record => record.price, direction);
+  } else {
+    return _.orderBy(this.collection, record => record.price);
+  };
+};
+
+Collector.prototype.compareCollectionValue = function (otherCollector) {
+  myCollectionValue = this.collectionValue();
+  otherCollectionValue = otherCollector.collectionValue();
+  return "My Collection Value: £" + myCollectionValue + ". Other Collection Value: £" + otherCollectionValue + ".";
+};
+
 module.exports = Collector;

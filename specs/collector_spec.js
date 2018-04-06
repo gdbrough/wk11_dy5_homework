@@ -67,4 +67,32 @@ describe("Collector", function(){
     assert.deepEqual(collector1.mostExpensive(), record1);
   });
 
+  it("should be able to sort collection by value", function(){
+    collector1.buyRecord(record1, store1);
+    collector1.buyRecord(record2, store1);
+    collector1.buyRecord(record3, store1);
+    collector1.buyRecord(record4, store1);
+    collector1.buyRecord(record5, store1);
+    assert.deepEqual(collector1.sortByPrice(), [record4, record2, record3, record5, record1])
+  });
+
+  it("should be able to sort collection by value - descending", function(){
+    collector1.buyRecord(record1, store1);
+    collector1.buyRecord(record2, store1);
+    collector1.buyRecord(record3, store1);
+    collector1.buyRecord(record4, store1);
+    collector1.buyRecord(record5, store1);
+    assert.deepEqual(collector1.sortByPrice("desc"), [record1, record5, record3, record2, record4])
+  });
+
+  it("should be able to compare collection value with another", function(){
+      collector1.buyRecord(record2, store1);
+      collector1.buyRecord(record3, store1);
+      collector1.buyRecord(record4, store1);
+      collector1.buyRecord(record5, store1);
+      collector2 = new Collector("Skint", 15.00);
+      collector2.buyRecord(record1, store1);
+      assert.strictEqual(collector1.compareCollectionValue(collector2), "My Collection Value: £35.96. Other Collection Value: £12.99.");
+  });
+
 });
